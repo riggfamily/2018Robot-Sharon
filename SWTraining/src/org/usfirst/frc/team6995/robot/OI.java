@@ -8,6 +8,10 @@
 package org.usfirst.frc.team6995.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.usfirst.frc.team6995.robot.commands.*;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -42,4 +46,21 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	public Joystick joystick = new Joystick(RobotMap.OI_JOYSTICK);
+	
+	Button J1 = new JoystickButton(joystick, 1);
+	Button J2 = new JoystickButton(joystick, 2);
+	Button J3 = new JoystickButton(joystick, 3);
+	Button J4 = new JoystickButton(joystick, 4);
+	Button J5 = new JoystickButton(joystick, 5);
+	Button J6 = new JoystickButton(joystick, 6);
+	Button J7 = new JoystickButton(joystick, 7);
+	Button J8 = new JoystickButton(joystick, 8);
+	
+	public OI() {	
+		J1.whileHeld(new GrabberArmCloseC());
+		J2.whileHeld(new GrabberArmOpenC());
+		J4.whileHeld(new GrabberWheelsCollectC());
+		J6.whileHeld(new GrabberWheelsEjectC());
+	}
+
 }

@@ -23,7 +23,7 @@ public class AutoDriveTimeC extends Command {
     }
 
     protected void execute() {
-     	Robot.drivebase.arcadeDrive((autospeed), 0); // drive straight at half speed
+     	Robot.drivebase.arcadeDrive((autospeed), 0, 0); // drive straight at half speed
     }
 
     protected boolean isFinished() {
@@ -32,7 +32,7 @@ public class AutoDriveTimeC extends Command {
     }
 
     protected void end() {
-    	Robot.drivebase.arcadeDrive(0, 0);
+    	Robot.drivebase.arcadeDrive(0, 0, 0);
     }
 
     protected void interrupted() {

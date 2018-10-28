@@ -14,9 +14,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team6995.robot.commands.AutoDriveDistanceC;
-import org.usfirst.frc.team6995.robot.commands.AutoDriveTimeC;
-import org.usfirst.frc.team6995.robot.subsystems.DrivebaseS;
+import org.usfirst.frc.team6995.robot.commands.*;
+import org.usfirst.frc.team6995.robot.subsystems.*;
 import org.usfirst.frc.team6995.robot.RobotMap;
 
 /** Sharon's Robot Code - Testing Preferences
@@ -28,7 +27,12 @@ import org.usfirst.frc.team6995.robot.RobotMap;
  */
 public class Robot extends TimedRobot {
 
+// Subsystems
 	public static DrivebaseS drivebase;
+    public static GrabberArmS grabberArm;
+    public static GrabberWheelsS grabberWheels;
+    
+// Output/Input 
 	public static OI m_oi;
 //	Preferences prefs;
 	public static double throttle;
@@ -43,13 +47,16 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		drivebase = new DrivebaseS();
+		grabberArm = new GrabberArmS();
+		grabberWheels = new GrabberWheelsS();
 		m_oi = new OI();
 		
 		m_chooser.addDefault("Auto by Time", new AutoDriveTimeC());
 		m_chooser.addObject("Auto by Distance", new AutoDriveDistanceC());
+		
 		SmartDashboard.putData("Auto mode", m_chooser);
-		SmartDashboard.putBoolean("Use Left Encoder", RobotMap.DRIVEBASE_ENCODER_LEFT);
-		SmartDashboard.putBoolean("Use Right Encoder", RobotMap.DRIVEBASE_ENCODER_RIGHT);
+		SmartDashboard.putBoolean("Use Left Encoder", RobotMap.USE_DRIVEBASE_ENCODER_LEFT);
+		SmartDashboard.putBoolean("Use Right Encoder", RobotMap.USE_DRIVEBASE_ENCODER_RIGHT);
 			
 		throttle=Preferences.getInstance().getDouble("Throttle",0.5);
 		if (throttle < 0 | throttle > 1) {
