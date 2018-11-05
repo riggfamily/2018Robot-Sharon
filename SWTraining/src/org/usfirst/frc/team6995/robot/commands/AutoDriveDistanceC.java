@@ -23,7 +23,7 @@ public class AutoDriveDistanceC extends Command {
 
     protected void execute() {
     	SmartDashboard.putNumber("Speed in AutoDistance", (autospeed));
-    	Robot.drivebase.arcadeDrive((autospeed), 0, 0); // drive straight 
+    	Robot.drivebase.arcadeDrive((autospeed), 0, 0, 1); // drive straight 
     }
 
     protected boolean isFinished() {
@@ -34,7 +34,7 @@ public class AutoDriveDistanceC extends Command {
     }
 
     protected void end() {
-    	Robot.drivebase.arcadeDrive(0, 0, 0);
+    	Robot.drivebase.arcadeDrive(0, 0, 0, 0);
     	Robot.drivebase.resetEncoder();
     }
 

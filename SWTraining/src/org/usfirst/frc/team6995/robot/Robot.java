@@ -18,7 +18,7 @@ import org.usfirst.frc.team6995.robot.commands.*;
 import org.usfirst.frc.team6995.robot.subsystems.*;
 import org.usfirst.frc.team6995.robot.RobotMap;
 
-/** Sharon's Robot Code - Testing Preferences
+/** Sharon's Robot Code 
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
  * documentation. If you change the name of this class or the package after
@@ -31,11 +31,11 @@ public class Robot extends TimedRobot {
 	public static DrivebaseS drivebase;
     public static GrabberArmS grabberArm;
     public static GrabberWheelsS grabberWheels;
+    public static LifterS lifter;
+
     
 // Output/Input 
 	public static OI m_oi;
-//	Preferences prefs;
-	public static double throttle;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();  
@@ -49,21 +49,20 @@ public class Robot extends TimedRobot {
 		drivebase = new DrivebaseS();
 		grabberArm = new GrabberArmS();
 		grabberWheels = new GrabberWheelsS();
+		lifter = new LifterS();
+		
 		m_oi = new OI();
 		
 		m_chooser.addDefault("Auto by Time", new AutoDriveTimeC());
 		m_chooser.addObject("Auto by Distance", new AutoDriveDistanceC());
+		m_chooser.addObject("Autonomous MultiCommand", new AutonomousC());
 		
 		SmartDashboard.putData("Auto mode", m_chooser);
 		SmartDashboard.putBoolean("Use Left Encoder", RobotMap.USE_DRIVEBASE_ENCODER_LEFT);
 		SmartDashboard.putBoolean("Use Right Encoder", RobotMap.USE_DRIVEBASE_ENCODER_RIGHT);
-			
-		throttle=Preferences.getInstance().getDouble("Throttle",0.5);
-		if (throttle < 0 | throttle > 1) {
-			throttle = 0.5;
 		System.out.println("robotInit");
-		}
 	}
+
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode.

@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class AutoDriveTimeC extends Command {
+public class AutoDriveStraightC extends Command {
 	double autospeed;
 	
-    public AutoDriveTimeC() {
+    public AutoDriveStraightC() {
         requires(Robot.drivebase);
         autospeed = RobotMap.AUTO_SPEED * Math.signum(RobotMap.AUTO_DISTANCE); // Math.sigma returns -1, 0, or 1 depending on sign of autodistance
     }

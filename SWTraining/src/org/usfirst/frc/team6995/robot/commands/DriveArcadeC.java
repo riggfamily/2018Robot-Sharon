@@ -21,7 +21,8 @@ public class DriveArcadeC extends Command {
     	double moveSpeed = -Robot.m_oi.joystick.getRawAxis(RobotMap.DRIVE_MOVE_AXIS);
     	double leftRight = Robot.m_oi.joystick.getRawAxis(RobotMap.DRIVE_LEFTRIGHT_AXIS);
     	double rotate = Robot.m_oi.joystick.getRawAxis(RobotMap.DRIVE_ROTATE_AXIS);
-    	Robot.drivebase.arcadeDrive(moveSpeed, leftRight, rotate);
+    	double throttle = Math.abs(Robot.m_oi.joystick.getThrottle());
+    	Robot.drivebase.arcadeDrive(moveSpeed, leftRight, rotate, throttle);
     }
 
     protected boolean isFinished() {
@@ -29,7 +30,7 @@ public class DriveArcadeC extends Command {
     }
 
     protected void end() {
-    	Robot.drivebase.arcadeDrive(0, 0, 0);
+    	Robot.drivebase.arcadeDrive(0, 0, 0, 0);
     }
 
     protected void interrupted() {

@@ -47,20 +47,20 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	public Joystick joystick = new Joystick(RobotMap.OI_JOYSTICK);
 	
-	Button J1 = new JoystickButton(joystick, 1);
-	Button J2 = new JoystickButton(joystick, 2);
-	Button J3 = new JoystickButton(joystick, 3);
-	Button J4 = new JoystickButton(joystick, 4);
-	Button J5 = new JoystickButton(joystick, 5);
-	Button J6 = new JoystickButton(joystick, 6);
-	Button J7 = new JoystickButton(joystick, 7);
-	Button J8 = new JoystickButton(joystick, 8);
+	Button JBGrabberArmClose = new JoystickButton(joystick, RobotMap.JB_GRABBER_ARM_CLOSE);
+	Button JBGrabberArmOpen = new JoystickButton(joystick, RobotMap.JB_GRABBER_ARM_OPEN);
+	Button JBGrabberWheelsCollect = new JoystickButton(joystick, RobotMap.JB_GRABBER_WHEELS_COLLECT);
+	Button JBGrabberWheelsEject = new JoystickButton(joystick, RobotMap.JB_GRABBER_WHEELS_EJECT);
+	Button JBLifterDown = new JoystickButton(joystick, RobotMap.JB_LIFTER_DOWN);
+	Button JBLifterUp = new JoystickButton(joystick, RobotMap.JB_LIFTER_UP);
 	
 	public OI() {	
-		J1.whileHeld(new GrabberArmCloseC());
-		J2.whileHeld(new GrabberArmOpenC());
-		J4.whileHeld(new GrabberWheelsCollectC());
-		J6.whileHeld(new GrabberWheelsEjectC());
+		JBGrabberArmClose.whileHeld(new GrabberArmCloseC());
+		JBGrabberArmOpen.whileHeld(new GrabberArmOpenC());
+		JBGrabberWheelsCollect.whileHeld(new GrabberWheelsCollectC());
+		JBGrabberWheelsEject.whileHeld(new GrabberWheelsEjectC());
+//		JBLifterDown.whileHeld(new LifterC());
+//		JBLifterUp.whileHeld(new LifterC());
 	}
 
 }

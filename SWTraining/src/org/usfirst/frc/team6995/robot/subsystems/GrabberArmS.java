@@ -14,7 +14,7 @@ public class GrabberArmS extends Subsystem {
     private static DoubleSolenoid grabberCylinder;
     
     public GrabberArmS() {
-    	grabberCylinder = new DoubleSolenoid(1, 0, 1);  // robotmap definitions?
+    	grabberCylinder = new DoubleSolenoid(RobotMap.GRABBER_ARM_PCM_ID, 0, 1);  // robotmap definitions?
     }
 
     public void initDefaultCommand() {

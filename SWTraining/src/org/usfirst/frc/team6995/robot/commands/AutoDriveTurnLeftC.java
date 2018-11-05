@@ -9,21 +9,20 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class AutoDriveTimeC extends Command {
+public class AutoDriveTurnLeftC extends Command {
 	double autospeed;
 	
-    public AutoDriveTimeC() {
+    public AutoDriveTurnLeftC() {
         requires(Robot.drivebase);
         autospeed = RobotMap.AUTO_SPEED * Math.signum(RobotMap.AUTO_DISTANCE); // Math.sigma returns -1, 0, or 1 depending on sign of autodistance
     }
 
     protected void initialize() {
-    	setTimeout(RobotMap.AUTO_TIME);  // timeout set in preferences
-    	SmartDashboard.putNumber("Speed in AutoTime", (autospeed));
+    	setTimeout(RobotMap.AUTO_TURN_TIME);  // timeout set in preferences
     }
 
     protected void execute() {
-     	Robot.drivebase.arcadeDrive((autospeed), 0, 0, 1); // drive straight
+     	Robot.drivebase.arcadeDrive((autospeed), -1, 0, 1); // drive left
     }
 
     protected boolean isFinished() {

@@ -63,9 +63,11 @@ public class DrivebaseS extends Subsystem {
         setDefaultCommand(new DriveArcadeC());
     }
     
-    public void arcadeDrive(double moveSpeed,double leftRight, double rotate) {
-    	double throttle = Robot.m_oi.joystick.getThrottle();
+    public void arcadeDrive(double moveSpeed,double leftRight, double rotate, double throttle) {
+    	// double throttle = Robot.m_oi.joystick.getThrottle();
     	double rotateSpeed;
+    	System.out.println("Throttle: " + throttle);
+ 
     	
     	//Combines both the X axis of the joystick and the rotation of the joystick.
     	if (Math.abs(leftRight) > Math.abs(rotate)) {
