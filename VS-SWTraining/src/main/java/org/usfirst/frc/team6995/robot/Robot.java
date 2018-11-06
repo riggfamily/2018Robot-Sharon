@@ -60,7 +60,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData("Auto mode", m_chooser);
 		SmartDashboard.putBoolean("Use Left Encoder", RobotMap.USE_DRIVEBASE_ENCODER_LEFT);
 		SmartDashboard.putBoolean("Use Right Encoder", RobotMap.USE_DRIVEBASE_ENCODER_RIGHT);
-		System.out.println("robotInit");
+		SmartDashboard.putNumber("AUTO_TIME", RobotMap.AUTO_TIME);
 	}
 
 

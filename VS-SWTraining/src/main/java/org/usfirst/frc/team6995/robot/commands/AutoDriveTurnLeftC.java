@@ -22,7 +22,7 @@ public class AutoDriveTurnLeftC extends Command {
     }
 
     protected void execute() {
-     	Robot.drivebase.arcadeDrive((autospeed), -1, 0, 1); // drive left
+     	Robot.drivebase.arcadeDrive((autospeed), -.5, 0, 1); // drive left
     }
 
     protected boolean isFinished() {

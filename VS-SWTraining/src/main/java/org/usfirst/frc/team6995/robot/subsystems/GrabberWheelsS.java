@@ -5,6 +5,7 @@ import org.usfirst.frc.team6995.robot.RobotMap;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import org.usfirst.frc.team6995.robot.commands.*;
 
 /**
  *
@@ -25,7 +26,7 @@ public class GrabberWheelsS extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new GrabberWheelsStopC());
     }
     
     public void collect() {
@@ -34,9 +35,12 @@ public class GrabberWheelsS extends Subsystem {
     }
     
     public void eject() {
-    	differentialDrive.arcadeDrive((RobotMap.GRABBER_EJECT_SPEED), 0);
+        differentialDrive.arcadeDrive((RobotMap.GRABBER_EJECT_SPEED), 0);
+        
+    }
 
-  
+    public void stop() {
+        differentialDrive.arcadeDrive(0,0);
     }
 }
 

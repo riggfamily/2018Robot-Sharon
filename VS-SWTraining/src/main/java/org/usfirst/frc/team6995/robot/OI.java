@@ -59,8 +59,8 @@ public class OI {
 		JBGrabberArmOpen.whileHeld(new GrabberArmOpenC());
 		JBGrabberWheelsCollect.whileHeld(new GrabberWheelsCollectC());
 		JBGrabberWheelsEject.whileHeld(new GrabberWheelsEjectC());
-//		JBLifterDown.whileHeld(new LifterC());
-//		JBLifterUp.whileHeld(new LifterC());
+		JBLifterDown.whileHeld(new LifterC());
+		JBLifterUp.whileHeld(new LifterC());
 	}
 
 }

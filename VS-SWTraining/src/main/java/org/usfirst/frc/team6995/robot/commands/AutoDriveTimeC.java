@@ -32,7 +32,7 @@ public class AutoDriveTimeC extends Command {
     }
 
     protected void end() {
-    	Robot.drivebase.arcadeDrive(0, 0, 0, 0);
+    //	Robot.drivebase.arcadeDrive(0, 0, 0, 0);  // this didn't seem to change anything
     }
 
     protected void interrupted() {

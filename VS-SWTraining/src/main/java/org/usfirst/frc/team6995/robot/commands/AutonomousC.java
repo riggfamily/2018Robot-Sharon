@@ -13,7 +13,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AutonomousC extends CommandGroup {
 
     public AutonomousC() {  	
-   		addSequential(new AutoDriveStraightC());
-		addSequential(new AutoDriveTurnLeftC());
+        addSequential(new AutoDriveStraightC());
+        addParallel(new GrabberWheelsEjectC());
+        addSequential(new AutoDriveTurnLeftC());
+        
     }
 }
