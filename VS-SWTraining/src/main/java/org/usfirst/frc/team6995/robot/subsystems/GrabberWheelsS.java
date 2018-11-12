@@ -30,7 +30,7 @@ public class GrabberWheelsS extends Subsystem {
     }
     
     public void collect() {
-    	differentialDrive.arcadeDrive((RobotMap.GRABBER_COLLECT_SPEED), 0);
+    	differentialDrive.arcadeDrive((-RobotMap.GRABBER_COLLECT_SPEED), 0);
 
     }
     

@@ -31,7 +31,9 @@ public class Robot extends TimedRobot {
 	public static DrivebaseS drivebase;
     public static GrabberArmS grabberArm;
     public static GrabberWheelsS grabberWheels;
-    public static LifterS lifter;
+	public static LifterS lifter;
+	public static double autotime;
+
 
     
 // Output/Input 
@@ -60,7 +62,11 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData("Auto mode", m_chooser);
 		SmartDashboard.putBoolean("Use Left Encoder", RobotMap.USE_DRIVEBASE_ENCODER_LEFT);
 		SmartDashboard.putBoolean("Use Right Encoder", RobotMap.USE_DRIVEBASE_ENCODER_RIGHT);
+		autotime = Preferences.getInstance().getDouble("autotime", 10);         // Seconds to drive in auto
+
 		SmartDashboard.putNumber("AUTO_TIME", RobotMap.AUTO_TIME);
+		
+		SmartDashboard.putNumber("autotime", autotime);
 	}
 
 

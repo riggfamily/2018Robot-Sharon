@@ -29,7 +29,7 @@ public class RobotMap {
 	public static final int DRIVEBASE_LEFT_TALON_CAN_ID = 2;
 	public static final int DRIVEBASE_LEFTB_TALON_CAN_ID = 4;
 	
-	// Sparks
+	// Sparks pwm
 	public static final int LIFTER_CAN_ID = 5;
 	public static final int GRABBER_LEFT_CAN_ID = 7;
 	public static final int GRABBER_RIGHT_CAN_ID = 8;  // this may be wrong since the wheels didn't move
@@ -54,23 +54,23 @@ public class RobotMap {
 	
 	// Preferences	
 	public static final double AUTO_DISTANCE =
-			Preferences.getInstance().getDouble("AUTO_DISTANCE", -50);     // Distance to drive in auto
+			Preferences.getInstance().getDouble("AUTO_DISTANCE", 50);     // Distance to drive in auto
 	public static final double AUTO_TIME = 
-			Preferences.getInstance().getDouble("AUTO_TIME", 10);         // Seconds to drive in auto
+			Preferences.getInstance().getDouble("AUTO_TIME", 5);         // Seconds to drive in auto
 	public static final double AUTO_SPEED = 
 			Preferences.getInstance().getDouble("AUTO_SPEED", 0.5);       // Speed to drive in auto
 	public static final double AUTO_TURN_TIME = 
-			Preferences.getInstance().getDouble("AUTO_TURN_TIME", 5);       // Seconds to turn in auto
+			Preferences.getInstance().getDouble("AUTO_TURN_TIME", 2);       // Seconds to turn in auto
 	public static final double GRABBER_COLLECT_SPEED = 
-			Preferences.getInstance().getDouble("GRABBER_COLLECT_SPEED", 0.5);       // Speed of cube collecting;
+			Preferences.getInstance().getDouble("GRABBER_COLLECT_SPEED", 1.0);       // Speed of cube collecting;
 	public static final double GRABBER_EJECT_SPEED = 
-			Preferences.getInstance().getDouble("GRABBER_EJECT_SPEED", 0.5);       // Speed of cube ejecting;
+			Preferences.getInstance().getDouble("GRABBER_EJECT_SPEED", 1.0);       // Speed of cube ejecting;
 	public static final int BRAKING_CYCLES = 
 			Preferences.getInstance().getInt("BRAKING_CYCLES", 10);  
 	public static final int UNBRAKING_CYCLES = 
 			Preferences.getInstance().getInt("UNBRAKING_CYCLES", 10);  
 	public static final double LIFTER_SPEED_UP = 
-			Preferences.getInstance().getDouble("LIFTER_SPEED_UP", 0.75);  
+			Preferences.getInstance().getDouble("LIFTER_SPEED_UP", 0.5);  
 	public static final double LIFTER_SPEED_DOWN =
 			Preferences.getInstance().getDouble("LIFTER_SPEED_DOWN", -0.1);  
 
