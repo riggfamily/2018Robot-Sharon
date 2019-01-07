@@ -15,7 +15,7 @@ public class LifterS extends Subsystem {
     private static Solenoid lifterBrake = null;
     
     public LifterS (){
-    	liftUpDown = new Spark(RobotMap.LIFTER_CAN_ID);
+    	liftUpDown = new Spark(RobotMap.LIFTER_PWM_ID);
     	lifterBrake = new Solenoid(RobotMap.LIFTER_BRAKE_PCM_ID,RobotMap.LIFTER_BRAKE_PORT); 	
     }
 

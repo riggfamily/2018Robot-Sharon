@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team6995.robot.commands.*;
 import org.usfirst.frc.team6995.robot.subsystems.*;
-import org.usfirst.frc.team6995.robot.RobotMap;
+
 
 /** Sharon's Robot Code in Visual Code
  * The VM is configured to automatically run this class, and to call the
@@ -32,10 +32,7 @@ public class Robot extends TimedRobot {
     public static GrabberArmS grabberArm;
     public static GrabberWheelsS grabberWheels;
 	public static LifterS lifter;
-	public static double autotime;
 
-
-    
 // Output/Input 
 	public static OI m_oi;
 
@@ -60,13 +57,6 @@ public class Robot extends TimedRobot {
 		m_chooser.addObject("Autonomous MultiCommand", new AutonomousC());
 		
 		SmartDashboard.putData("Auto mode", m_chooser);
-		SmartDashboard.putBoolean("Use Left Encoder", RobotMap.USE_DRIVEBASE_ENCODER_LEFT);
-		SmartDashboard.putBoolean("Use Right Encoder", RobotMap.USE_DRIVEBASE_ENCODER_RIGHT);
-		autotime = Preferences.getInstance().getDouble("autotime", 10);         // Seconds to drive in auto
-
-		SmartDashboard.putNumber("AUTO_TIME", RobotMap.AUTO_TIME);
-		
-		SmartDashboard.putNumber("autotime", autotime);
 	}
 
 
@@ -130,6 +120,7 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
+		System.out.println("Tele Init autotime " + Preferences.getInstance().getDouble("autotime", 10));
 	}
 
 	/**

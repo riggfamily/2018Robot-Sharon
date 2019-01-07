@@ -1,19 +1,15 @@
 package org.usfirst.frc.team6995.robot.commands;
 
 import org.usfirst.frc.team6995.robot.Robot;
-import org.usfirst.frc.team6995.robot.RobotMap;
+import org.usfirst.frc.team6995.robot.RobotPreferences;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class AutoDriveDistanceC extends Command {
 
-	double autospeed;
-	
 	public AutoDriveDistanceC() {
-    	requires(Robot.drivebase);
-		autospeed = RobotMap.AUTO_SPEED * Math.signum(RobotMap.AUTO_DISTANCE);  
-		// Math.sigma returns -1, 0, or 1 depending on sign of autodistance
+    	requires(Robot.drivebase);	
 	}
 	
     protected void initialize() {
@@ -22,15 +18,14 @@ public class AutoDriveDistanceC extends Command {
     }
 
     protected void execute() {
-    	SmartDashboard.putNumber("Speed in AutoDistance", (autospeed));
-    	Robot.drivebase.arcadeDrive((autospeed), 0, 0, 1); // drive straight 
+    	Robot.drivebase.arcadeDrive(RobotPreferences.AutoSpeed(), 0, 0, 1); // drive straight 
     }
 
     protected boolean isFinished() {
     	SmartDashboard.putNumber("DistanceTraveled", 
     			Robot.drivebase.getDistanceTraveled());
         return (Math.abs(Robot.drivebase.getDistanceTraveled()) >= 
-        		Math.abs(RobotMap.AUTO_DISTANCE));
+        		Math.abs(RobotPreferences.AutoDistance()));
     }
 
     protected void end() {

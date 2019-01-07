@@ -1,7 +1,7 @@
 package org.usfirst.frc.team6995.robot.subsystems;
 
-import org.usfirst.frc.team6995.robot.Robot;
 import org.usfirst.frc.team6995.robot.RobotMap;
+import org.usfirst.frc.team6995.robot.RobotPreferences;
 import org.usfirst.frc.team6995.robot.commands.DriveArcadeC;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
@@ -95,7 +95,7 @@ public class DrivebaseS extends Subsystem {
 	//		System.out.println("Use both Encoder Count" + (Math.abs(encoderLeftCount) + Math.abs(encoderRightCount)/2));
 			return ((Math.abs(encoderLeftCount) - Math.abs(encoderRightCount))/2);
 		}
-		else if (RobotMap.USE_DRIVEBASE_ENCODER_LEFT) {
+		else if (RobotPreferences.UseDrivebaseEncoderLeft()) {
 	//		System.out.println("Use Left Encoder Count" + encoderLeftCount);
 			return encoderLeftCount;
 		}

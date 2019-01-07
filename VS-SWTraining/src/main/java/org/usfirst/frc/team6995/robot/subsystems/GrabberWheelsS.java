@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6995.robot.subsystems;
 
 import org.usfirst.frc.team6995.robot.RobotMap;
+import org.usfirst.frc.team6995.robot.RobotPreferences;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -17,8 +18,8 @@ public class GrabberWheelsS extends Subsystem {
     private static DifferentialDrive differentialDrive= null;
     
     public GrabberWheelsS() {
-    	grabberWheelsLeft = new Spark(RobotMap.GRABBER_LEFT_CAN_ID);
-    	grabberWheelsRight = new Spark(RobotMap.GRABBER_RIGHT_CAN_ID);
+    	grabberWheelsLeft = new Spark(RobotMap.GRABBER_LEFT_PWM_ID);
+    	grabberWheelsRight = new Spark(RobotMap.GRABBER_RIGHT_PWM_ID);
     		
 		differentialDrive = new DifferentialDrive(grabberWheelsLeft, grabberWheelsRight);
 		differentialDrive.setSafetyEnabled(false);	// ??	
@@ -30,17 +31,18 @@ public class GrabberWheelsS extends Subsystem {
     }
     
     public void collect() {
-    	differentialDrive.arcadeDrive((-RobotMap.GRABBER_COLLECT_SPEED), 0);
-
+        grabberWheelsLeft.set(-RobotPreferences.GrabberCollectSpeed());
+        grabberWheelsRight.set(RobotPreferences.GrabberCollectSpeed());
     }
     
     public void eject() {
-        differentialDrive.arcadeDrive((RobotMap.GRABBER_EJECT_SPEED), 0);
-        
+        grabberWheelsLeft.set(RobotPreferences.GrabberEjectSpeed());
+        grabberWheelsRight.set(-RobotPreferences.GrabberEjectSpeed());
     }
 
     public void stop() {
-        differentialDrive.arcadeDrive(0,0);
+        grabberWheelsLeft.set(0);
+        grabberWheelsRight.set(0);
     }
 }
 

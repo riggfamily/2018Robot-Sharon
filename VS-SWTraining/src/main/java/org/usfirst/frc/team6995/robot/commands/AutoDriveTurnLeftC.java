@@ -1,7 +1,7 @@
 package org.usfirst.frc.team6995.robot.commands;
 
 import org.usfirst.frc.team6995.robot.Robot;
-import org.usfirst.frc.team6995.robot.RobotMap;
+import org.usfirst.frc.team6995.robot.RobotPreferences;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -10,19 +10,17 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class AutoDriveTurnLeftC extends Command {
-	double autospeed;
 	
     public AutoDriveTurnLeftC() {
         requires(Robot.drivebase);
-        autospeed = RobotMap.AUTO_SPEED * Math.signum(RobotMap.AUTO_DISTANCE); // Math.sigma returns -1, 0, or 1 depending on sign of autodistance
     }
 
     protected void initialize() {
-    	setTimeout(RobotMap.AUTO_TURN_TIME);  // timeout set in preferences
+    	setTimeout(RobotPreferences.AutoTurnTime());  // timeout set in preferences
     }
 
     protected void execute() {
-     	Robot.drivebase.arcadeDrive((autospeed), -.5, 0, 1); // drive left
+     	Robot.drivebase.arcadeDrive(RobotPreferences.AutoSpeed(), -.5, 0, 1); // drive left
     }
 
     protected boolean isFinished() {
