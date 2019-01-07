@@ -23,19 +23,6 @@ public class DrivebaseS extends Subsystem {
 	private DifferentialDrive differentialDrive = null;
 	
 	public DrivebaseS() {
-		/*  What is the benefit of using "follow" instead of a SpeedControllerGroup?
-		 *  Spark m_frontLeft = new Spark(1);
-   Spark m_rearLeft = new Spark(2);
-   SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_rearLeft);
-
-   Spark m_frontRight = new Spark(3);
-   Spark m_rearRight = new Spark(4);
-   SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_rearRight);
-
-   DifferentialDrive m_drive = new DifferentialDrive(m_left, m_right);
-		 * 
-		 */
-	
 		driveLeft = new WPI_TalonSRX(RobotMap.DRIVEBASE_LEFT_TALON_CAN_ID);
 		driveLeftBack = new WPI_TalonSRX(RobotMap.DRIVEBASE_LEFTB_TALON_CAN_ID);
 		driveRight = new WPI_TalonSRX(RobotMap.DRIVEBASE_RIGHT_TALON_CAN_ID);
@@ -59,12 +46,10 @@ public class DrivebaseS extends Subsystem {
 	}
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
         setDefaultCommand(new DriveArcadeC());
     }
     
     public void arcadeDrive(double moveSpeed,double leftRight, double rotate, double throttle) {
-    	// double throttle = Robot.m_oi.joystick.getThrottle();
     	double rotateSpeed;
     	
     	//Combines both the X axis of the joystick and the rotation of the joystick.
@@ -79,7 +64,6 @@ public class DrivebaseS extends Subsystem {
     	}
 
     	differentialDrive.arcadeDrive((moveSpeed*throttle), (rotateSpeed*throttle));
-    	// differentialDrive.arcadeDrive((moveSpeed), (rotateSpeed));
     }    
     
     
@@ -105,8 +89,7 @@ public class DrivebaseS extends Subsystem {
     
 	public double getDistanceTraveled() {
 		SmartDashboard.putNumber("getDistanceTraveled Encoder Count", getEncoderCount());
-    	return (getEncoderCount() / (4096/(6*Math.PI)));  // 6pi inches per 4096 counts - How did we figure this out?
-    }
+    	return (getEncoderCount() / (4096/(6*Math.PI)));  // 6pi inches per 4096 counts     }
     
     public void resetEncoder() {
     	double encoderLeftCount;
@@ -120,6 +103,5 @@ public class DrivebaseS extends Subsystem {
 		System.out.println("resetEncoder: L-" + encoderLeftCount + " R-" + encoderRightCount);
     	SmartDashboard.putNumber("Reset Left Encoder Count", encoderLeftCount);
 		SmartDashboard.putNumber("Reset Right Encoder Count", encoderRightCount);
-    	// driveEncoders.reset();  // encoder on roboRIO
     }
 }

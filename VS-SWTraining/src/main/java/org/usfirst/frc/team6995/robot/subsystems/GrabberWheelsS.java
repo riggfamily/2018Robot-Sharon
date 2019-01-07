@@ -22,11 +22,10 @@ public class GrabberWheelsS extends Subsystem {
     	grabberWheelsRight = new Spark(RobotMap.GRABBER_RIGHT_PWM_ID);
     		
 		differentialDrive = new DifferentialDrive(grabberWheelsLeft, grabberWheelsRight);
-		differentialDrive.setSafetyEnabled(false);	// ??	
+		differentialDrive.setSafetyEnabled(false);	
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
         setDefaultCommand(new GrabberWheelsStopC());
     }
     

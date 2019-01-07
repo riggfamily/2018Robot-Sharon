@@ -30,7 +30,7 @@ public class RobotMap {
 	
 	// Pneumatics
 	public static final int GRABBER_ARM_PCM_ID = 1;
-	public static final int LIFTER_BRAKE_PCM_ID = 1;  // changed from 0
+	public static final int LIFTER_BRAKE_PCM_ID = 1; 
 	public static final int LIFTER_BRAKE_PORT = 7;
 
 	// Joysticks
